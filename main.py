@@ -7,6 +7,6 @@ print("yeee")
 
 print("Hallosann!")
 
-print("Jeg e her")
+print("Jeg e der")
 
 
