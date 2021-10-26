@@ -10,7 +10,7 @@
 
 
 class Weather:
-    def check_location() -> bool:
+    def check_location():
         pass
 
     def get_weather(_location):
