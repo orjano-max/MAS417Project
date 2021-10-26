@@ -6,3 +6,7 @@ import PictureProcessing
 
 
 print("Hallosann!")
+
+print("Eg e her")
+
+
