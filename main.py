@@ -7,6 +7,6 @@ import PictureProcessing
 
 print("Hallosann!")
 
-print("Eg e her")
+print("Jeg e her")
 
 
