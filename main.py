@@ -7,7 +7,6 @@ from Weather import Weather
 
 def main():
 
-
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
     """

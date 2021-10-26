@@ -11,8 +11,6 @@ import requests
 
 
 class Weather:
-    # Set Client_id(user credentials)
-    client_ID = 'd1f7d0f1-585a-4144-9426-b5e84022fe2a'
 
     # Latitude and longitude of the location
     latitude = 0
@@ -38,11 +36,14 @@ class Weather:
         # If the location exists, it will store the latitude and longitude of the location and report a pass.
         passed = False
 
+        # Set Client_id(user credentials)
+        client_id = 'd1f7d0f1-585a-4144-9426-b5e84022fe2a'
+
         # Define Endpoint
         endpoint = f'https://frost.met.no/locations/v0.jsonld?names={self.location}'
 
         # Issue an HTTP GET request
-        request = requests.get(endpoint, auth=(self.client_ID, ''))
+        request = requests.get(endpoint, auth=(client_id, ''))
 
         # Extract JSON data
         json = request.json()
