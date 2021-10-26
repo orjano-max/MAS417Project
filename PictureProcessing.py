@@ -10,8 +10,8 @@
 
 
 class PictureProcessing:
-    def segment_image() -> void:
+    def segment_image():
         pass
 
-    def set_image() -> void:
+    def set_image():
         pass

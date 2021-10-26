@@ -10,8 +10,8 @@
 
 
 class STLGenerator:
-    def generate_stl() -> stl:
+    def generate_stl():
         pass
 
-    def set_segmented_image() -> void:
+    def set_segmented_image():
         pass
