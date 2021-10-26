@@ -3,7 +3,7 @@
 import STLGenerator as generator
 import Weather
 import PictureProcessing
-print("yeee")
+print("weather is nice")
 
 print("Hallosann!")
 
