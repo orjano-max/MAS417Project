@@ -13,10 +13,8 @@ class Weather:
     def check_location() -> bool:
         pass
 
-    def get_weather(location) -> string:
+    def get_weather(_location):
         pass
 
-    def set_location(location : string) -> void:
+    def set_location(_location):
         pass
-
-    #hei
