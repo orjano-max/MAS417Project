@@ -7,14 +7,99 @@
 # Original author: orjan
 # 
 #######################################################
+import requests
 
 
 class Weather:
-    def check_location():
-        pass
 
-    def get_weather(_location):
-        pass
+    # Latitude and longitude of the location
+    latitude = 0
+    longitude = 0
 
-    def set_location(_location):
-        pass
+    # Temperature and weather symbol on location
+    temperature = 0
+    symbol = ''
+
+    # Instance init
+    def __init__(self, location):
+        self.location = location
+
+    # This replaces the message printed when calling print(weather)
+    def __str__(self):
+        return f'''The weather is set to:
+                    Location: {self.location}, 
+                    Longitude: {self.longitude}, 
+                    Latitude: {self.latitude}'''
+
+    def check_location(self):
+        # This method checks if the location stored in "self.location" exists.
+        # If the location exists, it will store the latitude and longitude of the location and report a pass.
+        passed = False
+
+        # Set Client_id(user credentials)
+        client_id = 'd1f7d0f1-585a-4144-9426-b5e84022fe2a'
+
+        # Define Endpoint
+        endpoint = f'https://frost.met.no/locations/v0.jsonld?names={self.location}'
+
+        # Issue an HTTP GET request
+        request = requests.get(endpoint, auth=(client_id, ''))
+
+        # Extract JSON data
+        json = request.json()
+
+        # Check if request worked, print out any errors
+        if request.status_code == 200:
+            data = json['data']
+            print('Data retrieved from frost.met.no!')
+            passed = True
+            self.longitude = data[0]['geometry']['coordinates'][0]
+            self.latitude = data[0]['geometry']['coordinates'][1]
+        else:
+            print('Error retrieving data! Returned status code %s' % request.status_code)
+            print('Message: %s' % json['error']['message'])
+            print('Reason: %s' % json['error']['reason'])
+
+        return passed
+
+    def get_weather(self):
+        # This function gets the weather for  the coordinates given in self.latitude and self.longitude
+
+        # User Agent string
+        headers = {
+            'User-Agent': 'University of Agder: MAS417 Project: Group3',
+            'From': 'orjano18@uia.no',
+        }
+
+        # Copy values from self to shorten the endpoint line(IDE didn't like more than 120 letters)
+        latitude = str(self.latitude)
+        longitude = str(self.longitude)
+
+        # Define Endpoint
+        endpoint = f'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}'
+
+        # Issue an HTTP GET request
+        request = requests.get(endpoint, headers=headers)
+
+        # Extract JSON data
+        json = request.json()
+
+        # Check if request worked, print out any errors
+        if request.status_code == 200:
+            print('Data retrieved from api.met.no!')
+            data = json['properties']['timeseries'][00]['data']
+
+            self.temperature = data['instant']['details']['air_temperature']
+            self.symbol = data['next_1_hours']['summary']['symbol_code']
+        else:
+            print('Error retrieving data! Returned status code %s' % request.status_code)
+            print('Message: %s' % json['error']['message'])
+            print('Reason: %s' % json['error']['reason'])
+
+        return f'It is currently {self.symbol} and {self.temperature} degrees in {self.location}'
+
+    def get_location(self):
+        return f" The weather is set to location: {self.location}"
+
+    def set_location(self, ):
+        self.location = input("Enter Location: ")
