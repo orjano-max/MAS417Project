@@ -9,9 +9,12 @@ def main():
 
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
-    """
+    '''
+    # Ask for a location
+    location = input("Enter Location: ")
+
     # Initiate weather and save the location in the weather class
-    weather = Weather(input("Enter Location: "))
+    weather = Weather(location)
 
     # Check if the location exists
     for attempt in range(5):
@@ -24,11 +27,11 @@ def main():
             weather.set_location()
     else:
         print('No more tries.\n Goodbye!')
+        return
 
     print(weather.get_weather())
-
     #print(weather)
-    """
+    '''
     # ----------------------------------------------------------------------------
 
 
