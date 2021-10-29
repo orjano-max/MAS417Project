@@ -75,6 +75,13 @@ class Weather:
         latitude = str(self.latitude)
         longitude = str(self.longitude)
 
+        # Check that a location is set
+        # It is only possible to search for locations in Norway. Longitude = 0 and latitude = 0 is off the coast of
+        # Africa. This would therefore mean that the location is not set if longitude and latitude is 0.
+        if self.longitude == 0 and self.latitude == 0:
+            print("Location is not set! Could not get weather!")
+            return
+
         # Define Endpoint
         endpoint = f'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}'
 
