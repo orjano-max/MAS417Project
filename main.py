@@ -9,7 +9,7 @@ def main():
 
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
-    """
+    print('hei')
     # Initiate weather and save the location in the weather class
     weather = Weather(input("Enter Location: "))
 
@@ -28,7 +28,7 @@ def main():
     print(weather.get_weather())
 
     #print(weather)
-    """
+
     # ----------------------------------------------------------------------------
 
 
