@@ -7,11 +7,43 @@
 # Original author: orjan
 # 
 #######################################################
+from skimage import data
+import numpy as np
+import matplotlib.pyplot as plt
+from pylab import imread
+import skimage.segmentation as seg
+from csdt_stl_tools import numpy2stl
+from skimage.transform import resize
+from scipy.ndimage import gaussian_filter
+import cv2
 
 
 class PictureProcessing:
-    def segment_image():
-        pass
 
-    def set_image():
+    image: str
+
+    def __init__(self):
+        self.image = ''
+
+    def segment_image(self, image):
+        self.image = imread('Lena.png')
+        A = self.image
+        #self.image = data.astronaut()
+        #A = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+        A = gaussian_filter(A, 1)  # smoothing
+        numpy2stl(A, "Lena.stl", scale=0.1, solid=False)
+
+
+        '''
+        image_slic = seg.slic(self.image,compactness=1,n_segments=5)
+        plt.imshow(image_slic)
+        plt.show()
+        plt.imshow(self.image)
+        plt.show()
+        '''
+
+        # Saving file as ‘logo.png’
+        #io.imsave('logo.png', self.image)
+
+    def set_image(self):
         pass
