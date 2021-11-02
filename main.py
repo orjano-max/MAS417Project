@@ -3,13 +3,15 @@
 # import STLGenerator as generator
 from Weather import Weather
 # import PictureProcessing
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
 
 def main():
 
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
-    '''
+
     # Ask for a location
     location = input("Enter Location: ")
 
@@ -30,8 +32,14 @@ def main():
         return
 
     print(weather.get_weather())
-    #print(weather)
-    '''
+    weather_symbol = f'weathericon\{weather.symbol}.png'
+
+    img = mpimg.imread(weather_symbol)
+    imgplot = plt.imshow(img)
+    plt.show()
+
+
+
     # ----------------------------------------------------------------------------
 
 
