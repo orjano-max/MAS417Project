@@ -34,8 +34,11 @@ def main():
     print(weather.get_weather())
     weather_symbol = f'weathericon\{weather.symbol}.png'
 
-    #print(weather)
-    """
+    weather_symbol = f'weathericon\{weather.symbol}.png'
+
+    img = mpimg.imread(weather_symbol)
+    imgplot = plt.imshow(img)
+    plt.show()
     # ----------------------------------------------------------------------------
 
 
