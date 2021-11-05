@@ -1,12 +1,19 @@
 # This is the main file for the MAS417 Project
 
 # import STLGenerator as generator
+import cv2.cv2
+
 from Weather import Weather
 from PictureProcessing import PictureProcessing
-
+from csdt_stl_tools import numpy2stl
+from skimage.transform import resize
+from cv2 import cv2
+from scipy.ndimage import gaussian_filter
+from stl import mesh
 
 
 def main():
+
 
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
@@ -34,7 +41,7 @@ def main():
         return
 
     print(weather.get_weather())
-    weather_symbol = f'weathericon\{weather.symbol}.png'
+    weather_symbol = f'./weathericon/{weather.symbol}.png'
 
 
     processor.segment_image(weather_symbol)

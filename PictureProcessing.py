@@ -15,35 +15,18 @@ import skimage.segmentation as seg
 from csdt_stl_tools import numpy2stl
 from skimage.transform import resize
 from scipy.ndimage import gaussian_filter
-import cv2
+from cv2 import cv2
 
 
 class PictureProcessing:
 
-    image: str
-
     def __init__(self):
-        self.image = ''
+        pass
 
     def segment_image(self, image):
-        self.image = imread('Lena.png')
-        A = self.image
-        #self.image = data.astronaut()
-        #A = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
-        A = gaussian_filter(A, 1)  # smoothing
-        numpy2stl(A, "Lena.stl", scale=0.1, solid=False)
-
-
-        '''
-        image_slic = seg.slic(self.image,compactness=1,n_segments=5)
-        plt.imshow(image_slic)
-        plt.show()
-        plt.imshow(self.image)
-        plt.show()
-        '''
-
-        # Saving file as ‘logo.png’
-        #io.imsave('logo.png', self.image)
+        self.image = cv2.imread(f'{image}', 0)
+        A = gaussian_filter(self.image, 1)  # smoothing
+        numpy2stl(A, 'icon.stl', scale=0.1, solid=True, ascii=False)
 
     def set_image(self):
         pass
