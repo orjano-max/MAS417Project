@@ -7,13 +7,8 @@
 # Original author: orjan
 # 
 #######################################################
-from skimage import data
-import numpy as np
-import matplotlib.pyplot as plt
-from pylab import imread
-import skimage.segmentation as seg
+
 from csdt_stl_tools import numpy2stl
-from skimage.transform import resize
 from scipy.ndimage import gaussian_filter
 from cv2 import cv2
 
@@ -25,8 +20,9 @@ class PictureProcessing:
 
     def segment_image(self, image):
         self.image = cv2.imread(f'{image}', 0)
+        A = self.image
         A = gaussian_filter(self.image, 1)  # smoothing
-        numpy2stl(A, 'icon.stl', scale=0.1, solid=True, ascii=False)
+        numpy2stl(A, 'icon.stl', scale=0.1, solid=True, ascii=False,)
 
     def set_image(self):
         pass

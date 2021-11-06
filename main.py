@@ -5,11 +5,6 @@ import cv2.cv2
 
 from Weather import Weather
 from PictureProcessing import PictureProcessing
-from csdt_stl_tools import numpy2stl
-from skimage.transform import resize
-from cv2 import cv2
-from scipy.ndimage import gaussian_filter
-from stl import mesh
 
 
 def main():
@@ -42,7 +37,6 @@ def main():
 
     print(weather.get_weather())
     weather_symbol = f'./weathericon/{weather.symbol}.png'
-
 
     processor.segment_image(weather_symbol)
 
