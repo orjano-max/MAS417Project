@@ -1,17 +1,10 @@
 # This is the main file for the MAS417 Project
 
-# import STLGenerator as generator
-import cv2.cv2
-
 from Weather import Weather
 from PictureProcessing import PictureProcessing
 
 
 def main():
-
-
-    # --------------------------------------------------------------------
-    # This part is used to test the weather class. Currently commented out
 
     # Ask for a location
     location = input("Enter Location: ")
@@ -39,9 +32,7 @@ def main():
     weather_symbol = f'./weathericon/{weather.symbol}.png'
 
     processor.segment_image(weather_symbol)
-
-    # ----------------------------------------------------------------------------
-
+    
 
 if __name__ == "__main__":
     main()
