@@ -103,7 +103,7 @@ class Weather:
             print('Message: %s' % json['error']['message'])
             print('Reason: %s' % json['error']['reason'])
 
-        return f'It is currently {self.symbol} and {self.temperature} degrees in {self.location}'
+        return f'It is currently {self.symbol.split("_")[0]} and {self.temperature} degrees in {self.location.capitalize()}'
 
     def get_location(self):
         return f" The weather is set to location: {self.location}"
