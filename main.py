@@ -24,12 +24,12 @@ def main():
 
     # Check if the location exists
     for attempt in range(5):
-        location_exists = weather.check_location()
-        if location_exists:
-            # The location exists!
+        location_retrieved = weather.check_location()
+        if location_retrieved:
+            # The location has been retrieved!
             break
         else:
-            print("This location does not exist.\n Try Again!")
+            print("Try Again!")
             weather.set_location()
     else:
         print('No more tries.\n Goodbye!')
