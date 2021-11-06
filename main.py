@@ -1,19 +1,23 @@
 # This is the main file for the MAS417 Project
 
 # import STLGenerator as generator
+import cv2.cv2
+
 from Weather import Weather
-# import PictureProcessing
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+from PictureProcessing import PictureProcessing
 
 
 def main():
+
 
     # --------------------------------------------------------------------
     # This part is used to test the weather class. Currently commented out
 
     # Ask for a location
     location = input("Enter Location: ")
+
+    # Initiate PictureProcessing as processor
+    processor = PictureProcessing()
 
     # Initiate weather and save the location in the weather class
     weather = Weather(location)
@@ -32,13 +36,10 @@ def main():
         return
 
     print(weather.get_weather())
-    weather_symbol = f'weathericon\{weather.symbol}.png'
+    weather_symbol = f'./weathericon/{weather.symbol}.png'
 
-    weather_symbol = f'weathericon\{weather.symbol}.png'
+    processor.segment_image(weather_symbol)
 
-    img = mpimg.imread(weather_symbol)
-    imgplot = plt.imshow(img)
-    plt.show()
     # ----------------------------------------------------------------------------
 
 

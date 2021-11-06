@@ -18,7 +18,7 @@ class Weather:
 
     # Temperature and weather symbol on location
     temperature = 0
-    symbol = ''
+    symbol: str = ''
 
     # Instance init
     def __init__(self, location):
