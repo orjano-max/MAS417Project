@@ -8,10 +8,18 @@
 # 
 #######################################################
 
+from csdt_stl_tools import numpy2stl
+from scipy.ndimage import gaussian_filter
+from cv2 import cv2
+
 
 class STLGenerator:
-    def generate_stl():
+
+    def __init__(self):
         pass
 
-    def set_segmented_image():
-        pass
+    def generate_stl(self, image):
+        self.image = cv2.imread(f'{image}', 0)
+        A = self.image
+        A = gaussian_filter(self.image, 1)  # smoothing
+        numpy2stl(A, 'icon.stl', scale=0.1, solid=True, ascii=False, )

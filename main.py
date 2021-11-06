@@ -1,7 +1,7 @@
 # This is the main file for the MAS417 Project
 
 from Weather import Weather
-from PictureProcessing import PictureProcessing
+from STLGenerator import STLGenerator
 
 
 def main():
@@ -10,7 +10,7 @@ def main():
     location = input("Enter Location: ")
 
     # Initiate PictureProcessing as processor
-    processor = PictureProcessing()
+    generator = STLGenerator()
 
     # Initiate weather and save the location in the weather class
     weather = Weather(location)
@@ -31,7 +31,7 @@ def main():
     print(weather.get_weather())
     weather_symbol = f'./weathericon/{weather.symbol}.png'
 
-    processor.segment_image(weather_symbol)
+    generator.generate_stl(weather_symbol)
     
 
 if __name__ == "__main__":
