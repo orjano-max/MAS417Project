@@ -8,7 +8,7 @@
 # 
 #######################################################
 
-from csdt_stl_tools import numpy2stl
+import numpy2stl as stl
 from scipy.ndimage import gaussian_filter
 from cv2 import cv2
 
@@ -19,7 +19,11 @@ class STLGenerator:
         pass
 
     def generate_stl(self, image):
+        print('Generating stl-file...')
+        print('Please wait...')
         self.image = cv2.imread(f'{image}', 0)
         A = self.image
         A = gaussian_filter(self.image, 1)  # smoothing
-        numpy2stl(A, 'icon.stl', scale=0.1, solid=True, ascii=False, )
+        stl.numpy2stl(A, 'icon.stl', scale=0.05, solid=True, ascii=False)
+        print('Done, check your library.')
+        print('Goodbye!')

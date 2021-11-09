@@ -30,9 +30,8 @@ def main():
 
     print(weather.get_weather())
     weather_symbol = f'./weathericon/{weather.symbol}.png'
-
+    weather_symbol = f'./weathericon/heavysleetshowersandthunder_day.png'
     generator.generate_stl(weather_symbol)
-    
 
 if __name__ == "__main__":
     main()
