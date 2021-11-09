@@ -14,6 +14,12 @@ from cv2 import cv2
 
 
 class STLGenerator:
+    # This class is heavily dependant on the "numpy2stl" function in the "stl_tools"
+    # python package (url:https://github.com/thearn/stl_tools).
+    # The code surrounding this function is also inspired by the examples provided by the "stl_tools" package
+    # example scripts (url: https://github.com/thearn/stl_tools/blob/master/README.md).
+    # We met problems when thrying to install the "stl_tools" package with pip, the "numpy2stl.py" file was therefore
+    # downloaded from git and copied into the project folder instead.
 
     def __init__(self):
         pass
@@ -21,8 +27,7 @@ class STLGenerator:
     def generate_stl(self, image):
         print('Generating stl-file...')
         print('Please wait...')
-        self.image = cv2.imread(f'{image}', 0)
-        A = self.image
+        self.image = cv2.imread(f'{image}', 0) #import image
         A = gaussian_filter(self.image, 1)  # smoothing
         stl.numpy2stl(A, 'icon.stl', scale=0.05, solid=True, ascii=False)
         print('Done, check your library.')

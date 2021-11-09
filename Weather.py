@@ -7,10 +7,15 @@
 # Original author: orjan
 # 
 #######################################################
+
 import requests
 
 
 class Weather:
+    # This class is made with inspiration from frost.met's
+    # example python script (url: https://frost.met.no/python_example.html).
+    # The code is heavily altered and fitted into a class, there is also a lot of added functionality and it now shows
+    # little resemblance to the example script.
 
     # Latitude and longitude of the location
     latitude = 0
