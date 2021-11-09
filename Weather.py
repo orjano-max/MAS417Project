@@ -115,3 +115,5 @@ class Weather:
 
     def set_location(self, ):
         self.location = input("Enter Location: ")
+
+# End of file
