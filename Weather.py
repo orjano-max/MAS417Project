@@ -108,12 +108,10 @@ class Weather:
             print('Message: %s' % json['error']['message'])
             print('Reason: %s' % json['error']['reason'])
 
-        return f'It is currently {self.symbol.split("_")[0]} and {self.temperature} degrees in {self.location.capitalize()}'
+        return f'It is currently {self.symbol.split("_")[0]} and {self.temperature} degrees in {self.location.title()}'
+
+    def set_location(self):
+        self.location = input("Enter Location: ")
 
     def get_location(self):
         return f" The weather is set to location: {self.location}"
-
-    def set_location(self, ):
-        self.location = input("Enter Location: ")
-
-# End of file

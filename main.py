@@ -32,6 +32,7 @@ def main():
     weather_symbol = f'./weathericon/{weather.symbol}.png'
     generator.generate_stl(weather_symbol)
 
+
 if __name__ == "__main__":
     main()
 

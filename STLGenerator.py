@@ -18,7 +18,7 @@ class STLGenerator:
     # python package (url:https://github.com/thearn/stl_tools).
     # The code surrounding this function is also inspired by the examples provided by the "stl_tools" package
     # example scripts (url: https://github.com/thearn/stl_tools/blob/master/README.md).
-    # We met problems when thrying to install the "stl_tools" package with pip, the "numpy2stl.py" file was therefore
+    # We met problems when trying to install the "stl_tools" package with pip, the "numpy2stl.py" file was therefore
     # downloaded from git and copied into the project folder instead.
 
     def __init__(self):
