@@ -32,3 +32,5 @@ class STLGenerator:
         stl.numpy2stl(A, 'icon.stl', scale=0.05, solid=True, ascii=False)
         print('Done, check your library.')
         print('Goodbye!')
+
+# End of file
