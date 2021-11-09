@@ -1,3 +1,7 @@
+# This file is copied from the stl_tools python package.
+# We had problems installing the stl_tools package with pip, so the file was downloaded from git
+# and copied into the project folder.
+
 import struct
 import numpy as np
 from itertools import product
